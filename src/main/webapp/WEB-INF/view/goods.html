@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>https://www.online-shop.com</title>
+        <link rel="stylesheet" href="css/main.css" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    </head>
+    <body class="centered">
+        <h2>Hello, <span th:text="${login}"></span>!</h2><br/>
+        <h2><pre th:text="${choice}"></pre></h2>
+        <form action="/createOrder" method="post">
+            <select class="select" name="goodName" id="goodName"
+                th:utext="${options}">
+            </select>
+                <br/><br/>
+            <input name="submit" type="submit" value="Add Goods">
+            <input name="submit" type="submit" value="Submit">
+                <br/><br/>
+            <input name="submit" type="submit" value="Remove Goods">
+            <input name="submit" type="submit" value="Log out">
+        </form>
+    </body>
+</html>
+
+

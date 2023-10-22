@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>https://www.online-shop.com</title>
+    </head>
+    <body class="centered">
+        <h2>Dear <span th:text="${login}"></span>!</h2>
+        <h3>Your Order <a th:text="${orderId}" th:href="${baseUrl + 'order'}"></a>
+            was placed successfully.<br/>
+            Thanks for your choice</h3>
+    </body>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>https://www.online-shop.com</title>
+        <link rel="stylesheet" href="css/main.css" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    </head>
+    <body class="centered">
+        <h2>Dear <span th:text="${login}"></span>, <span th:text="${orderHeader}"></span></h2><br/>
+        <h2><pre th:text="${orderList}"></pre></h2>
+        <h2>Total: $ <span th:text="${totalPrice}"></span></h2><br/>
+        <h4><span th:text="${fileHeader}"></span></h4>
+        <h4><span class="has-error" th:text="${noOrderError}"></span></h4>
+        <h4><span class="has-error" th:text="${fileWithoutNameError}"></span></h4>
+        <h4><span class="has-error" th:text="${fileUploadError}"></span></h4>
+        <div>
+            <th:block th:each="file, state : ${files}">
+                <table>
+                    <tr>
+                        <td><span th:utext="${state.count}"></span>. <a th:href="@{'/download/' + ${file.id}}" th:text="${file.name}"></a></td>
+                    </tr>
+                </table>
+           </th:block>
+        </div><br/>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>File to upload/remove:</td>
+                    <td><input type="file" name="file" /></td>
+                </tr>
+                <tr>
+                    <td><input name="submit" type="submit" value="Add File"></td>
+                    <td><input name="submit" type="submit" value="Delete File"></td>
+                </tr>
+            </table>
+            <input name="submit" type="submit" value="Log out">
+        </form>
+    </body>
+</html>
+
+
